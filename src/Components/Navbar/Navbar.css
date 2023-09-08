@@ -4,25 +4,11 @@
   padding: 0;
 }
 
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 8vh;
-}
-
 .brand-name {
   font-family: "Inter UI", sans-serif;
   font-size: 22px;
-  padding-left: 10px;
 }
 
-.nav-options {
+/* .nav-options {
   display: flex;
-  padding-right: 10px;
-}
-
-.options {
-  padding: 10px;
-  color: rgb(0, 0, 0);
-}
+} */

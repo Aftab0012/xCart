@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
 import axios from "axios";
 import { config } from "../App";
-import { SentimentDissatisfied } from "@mui/icons-material";
-import { Grid, Box } from "@mui/material";
 import "./Products.css";
 
 function Products() {
@@ -27,27 +25,14 @@ function Products() {
   }, []);
 
   return (
-    <div>
-      <Grid
-        className="product-card"
-        container
-        marginY="1rem"
-        paddingX="1rem"
-        spacing={2}
-      >
-        {products.length > 0 ? (
-          products.map((products) => (
-            <Grid item xs={6} md={3} key={products._id}>
-              <ProductCard product={products} />
-            </Grid>
-          ))
-        ) : (
-          <Box className="loading">
-            <SentimentDissatisfied color="action" />
-            <h3 style={{ color: "636363" }}>No Products Found</h3>
-          </Box>
-        )}
-      </Grid>
+    <div className=" h-full w-full">
+      <div className="flex flex-wrap justify-center align-center">
+        {products.map((product) => (
+          <div className="m-3" key={product._id}>
+            <ProductCard product={product} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

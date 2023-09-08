@@ -15,16 +15,18 @@ function Navbar() {
   };
 
   return (
-    <div className="nav-container">
-      <div className="brand-name">xCart</div>
-      <div className="nav-options">
-        <div className="options">Home</div>
-        <div className="options">Help</div>
-        <div className="options">{localStorage.getItem("username")}</div>
-        <div className="options">
-          <IconButton onClick={logout}>
-            <LogoutIcon fontSize="large"></LogoutIcon>
-          </IconButton>
+    <div>
+      <div className="p-6 flex flex-row justify-between bg-customGray text-xl text-customGrayForText">
+        <div className="brand-name pl-12">xCart</div>
+        <div className="nav-options flex ">
+          <div className="options pr-5">Home</div>
+          <div className="options pr-5">Help</div>
+          <div className="options pr-5">{localStorage.getItem("username")}</div>
+          <div className="options pr-5">
+            <IconButton onClick={logout}>
+              <LogoutIcon fontSize="large"></LogoutIcon>
+            </IconButton>
+          </div>
         </div>
       </div>
     </div>

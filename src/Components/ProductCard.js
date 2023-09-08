@@ -5,69 +5,45 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import AddShoppingCartOutlined from "@mui/icons-material/AddShoppingCartOutlined";
 import { styled } from "@mui/system"; // Import styled from @mui/system
-import { Box } from "@mui/material";
 import "./ProductCard.css";
-
-const StyledCard = styled(Card)({
-  width: "100%",
-  height: "100%",
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "space-between",
-  padding: "10px",
-});
-
-const StyledCardContent = styled(CardContent)({
-  flexGrow: 1,
-});
 
 const StyledButton = styled(Button)({
   display: "flex",
-  width: "90%",
+  width: "100%",
   alignSelf: "center",
 });
 
 const ProductCard = ({ product }) => {
   return (
-    // <Box
-    //   sx={{
-    //     display: "flex",
-    //     justifyContent: "center",
-    //     alignItems: "center",
-    //     flexWrap: "wrap",
-    //   }}
-    // >
-    <StyledCard className="card">
-      {/* Your CardMedia or image component here */}
-      <img className="image" src={product.image} alt="product image" />
-      <StyledCardContent>
-        <Typography variant="h5" gutterBottom component="div">
-          {product.title}
-        </Typography>
-        <Typography
-          variant="h5"
-          paddingY="0.5rem"
-          fontWeight="700"
-          gutterBottom
+    <div className=" cursor-pointer hover:bg-hoverColor rounded transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-md card p-3 h-full w-[330px] flex flex-col justify-between mt-10">
+      <div>
+        <img
+          className="image sm:h-64 md:h-72 lg:h-96"
+          src={product.image}
+          alt="product image"
+        />
+      </div>
+      <div>
+        <div className="p-3">
+          <div className="text-staleGray font-bold text-xl">
+            {product.title}
+          </div>
+          <div className="font-bold">${product.price}</div>
+        </div>
+        <StyledButton
+          className="text-customGrayForText"
+          name="add to cart"
+          variant="contained"
+          startIcon={<AddShoppingCartOutlined />}
+          onClick={() => {
+            console.log("added to cart");
+            console.log(product._id);
+          }}
         >
-          ${product.price}
-        </Typography>
-
-        {/* Add your Rating or other content here */}
-      </StyledCardContent>
-      <StyledButton
-        name="add to cart"
-        variant="contained"
-        startIcon={<AddShoppingCartOutlined />}
-        onClick={() => {
-          console.log("added to cart");
-          console.log(product._id);
-        }}
-      >
-        Add to cart
-      </StyledButton>
-    </StyledCard>
-    // </Box>
+          Add to cart
+        </StyledButton>
+      </div>
+    </div>
   );
 };
 
